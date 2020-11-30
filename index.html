@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Global rising temperature</title>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200; 300;700&display=swap" rel="stylesheet">
+
+<style type="text/css">
+	html{font-family: 'Work Sans', sans-serif; background: black;}
+	body,img,p,div,ul{margin: 0; position: relative;}
+	main,section{margin: auto;}
+	nav{width: 100%;  position: fixed; z-index: 2}
+	nav ul{list-style-type: none; padding: 30px;}
+	nav li{float: left; padding-left: 25px; padding-right: 25px }
+	img{position: absolute; z-index: -1}
+	main ul{list-style-type: none; padding: 0; position: absolute;}
+	main{height: 1200px;}
+	section{padding-top:100px; height: 1000px;}
+	span{font-weight: 700;}
+	p{text-align: center;}
+	footer .row{display: flex; justify-content: space-between; height: 100px;}
+
+	.row{margin: auto; width: 1200px; padding-top: 30px;}
+
+	.left{float: left;}
+	.right{float: right;}
+
+	.font1{font-size: 175pt;}
+	.font2-1{font-size: 75pt; letter-spacing: -10pt;}
+	.font2-2{font-size: 50pt;}
+	.font2-3{font-size: 1.8em; line-height: 150%;}
+	.font3{font-size: 1.5em; line-height: 150%}
+	.font4{font-size: 1em;}
+
+	.align{text-align: left;}
+	.line{line-height: 170%}
+
+	.ex-light{font-weight: 200}
+	.light{font-weight: 300;}
+	.bold{font-weight: 700;}
+
+	.color{color: #00BCC5;}
+
+	main p{position: absolute;}
+	#day{top: 150px; left: 48%;}
+	#tem{top: 200px; left: 46%}
+	#plus{top: 280px; left: 38%;}
+	#C{top: 330px; left: 57%}
+
+	#moon{left:0; top: 0;}
+	#earth{top: 300px; left: 0px; width: 100%;}
+	#graph{left:200px;}
+	#b{width: 100%; top: 900px;}
+	#y{top:180px; left:50px; width: 3.5%}
+
+	.weather{padding: 0; height: 1200px;}
+	.w-box{width: 1200px; top: 50px;}
+	.e-box{width: 1200px; top: 580px;}
+
+	.clear{width:250px; top: 220px; left: 490px;}
+	.point{top: 135px; left: 350px; width: 500px}
+	.state{top: 350px; left: 1000px; width: 100px;}
+
+	.air{width: 150px; top:710px; left: 110px;}
+	.water{width: 80px; top: 700px; left: 560px;}
+	.energy{width: 80px; top: 700px; left: 980px;}
+	
+	#clear{top:100px;}
+
+	.w-text{display: flex;}
+	#a{width: 400px;top:560px; left:-10px;}
+	#w{width: 400px;top:560px; left:5px;}
+	#e{width: 400px;top:560px; left:25px;}
+	
+	.w-content{display: flex;}
+	#a-1{width: 400px;top:720px; left:-10px;}
+	#w-1{width: 400px;top:720px; left:5px;}
+	#e-1{width: 400px;top:720px; left:25px;}
+
+	.news{background-image: url('bg.png'); background-repeat: no-repeat; height: 1200px;}
+	.box{display: flex; width: 1200px;}
+	.border{border: 0.75px solid #00BCC5;}
+	.news1{width: 300px; height: 800px; margin: 20px;}
+	#news1{top: 25px; left: 25px;}
+	#news1_text{top: 620px; left: 25px;} 
+
+	.news2{width: 560px; height: 800px; margin: 20px;} 
+	#news2{width: 470px; top: 330px; left: 25px;}
+	#news2_text{left: 25px;} 
+
+	.news3{width: 300px; height: 375px; margin: 20px;}
+	#news3{width: 225px; top: 25px; left: 25px} 
+	.news4{width: 280px; height: 375px; margin: 20px; top: -417px; left:880px}
+	#news4_text{top: 25px; left: 25px; max-width: 230px;} 
+
+	.diary1{width: 400px; height: 770px; margin: 20px; z-index: -2}
+	.diary2{width: 780px; height: 90px; margin: 20px; z-index: -2} 
+	#diary2_text{top: 25px; left: 25px} 
+	.diary3{width: 740px; height: 640px; margin: 20px; z-index: -2; top: -682px; left: 420px;} 
+	#diary3_text{top: 50px;left: 50px; max-width: 640px;}
+	#sticker1{width: 200px; top:0px;} 
+	#sticker2{width: 200px; top:740px; left: 1000px;}
+
+	#person{top:25px; left: 25px;}
+	#name{top:700px; left:25px;}
+
+	#life1{width: 900px; left: -100px;}
+	#life2{top: 300px; left: 300px;}
+	#life3{top:150px; right:-100px;}
+	#life4{width: 450px; top:700px; left: -50px;}
+	#life5{width: 300px; top:700px; left: 450px;}
+	#life6{width: 500px; top:650px; right: -80px;}
+	#emotion{top:1250px; left: 560px;}
+	#beautiful{top: 1100px;}
+
+	#sky{width: 100%; bottom: 100px;}
+	#city{width:100%; bottom: 100px;}
+
+	.life{padding-top:500px; height: 1000px;}
+
+
+
+</style>
+</head>
+
+<body>
+<nav>
+	<ul class="left font3 light color">
+		<li>Global rising temperature is</li>
+	</ul>
+	<ul class="right font3 light color">
+	<li>+0</li>
+	<li>+0.13</li> 
+	<li>+1</li> 
+	<li>+2.9</li>
+	<li>+6.4</li>
+	</ul>
+</nav>
+
+<main>
+	<img src="moon.png" id="moon">
+	<img src="earth.png" id="earth">
+	<img src="graph.png" id="graph">
+	<img src="b.png" id="b">
+	<img src="y.png" id="y">
+	<p class="font3 light color" id="day">Today</p>
+	<p class="font2-1 ex-light color" id="plus">+</p>
+	<p class="font1 ex-light color" id="tem">0</p>
+	<p class="font2-1 ex-light color" id="C">˚C</p>
+</main>
+
+<section class="weather">
+		<p class="font2-2 color light">Today's <span>Earth</span></p>
+	<div class="row"> 
+		<img src="w-box.png" class="w-box">
+		<img src="e-box.png" class="e-box">
+		<img src="clear.png" class="clear">
+		<img src="air.png" class="air">
+		<img src="water.png" class="water">
+		<img src="energy.png" class="energy">
+		<img src="point.png" class="point">
+		<img src="state.png" class="state">
+		<p class="font2-3 bold color" id="clear">Clear</p>
+			<div class="w-text">
+				<p class="font2-3 bold color" id="a">Air</p>
+				<p class="font2-3 bold color" id="w">water</p>
+				<p class="font2-3 bold color" id="e">energy</p>
+			</div>
+			<div class="w-content">
+				<p class="font3 light color" id="a-1">No dust</p>
+				<p class="font3 light color" id="w-1">Normal</p>
+				<p class="font3 light color" id="e-1">Normal</p>
+	</div>
+</section>
+
+<section class="news">
+		<p class="font2-2 color light"><span>Our</span> News</p>
+	<div class="row">
+		<div class="box">
+		<div class="news1 border"><img src="1.png" id="news1">
+			<div id="news1_text">
+				<p class="font2-3 bold color align">Economic Boom</p><br><p class="font3 light color align">The economy has boomed.</p>
+			</div>
+		</div>
+			<div class="news2 border"><img src="2.png" id="news2">
+			<div id="news2_text">
+				<br><p class="font2-2 bold color align">THE BEST SPOTS EVER!</p><br><p class="font3 light color align">Come and visit this beautiful island that is perfect for rest!</p>
+			</div>
+		</div>
+			<div class="news3 border"><img src="3.png" id="news3"></div>
+		</div>
+
+			<div class="news4 border" id="news4">
+				<div id="news4_text">
+				<p class="font2-3 bold color align">A mysterious place </p><br><p class="font3 light color align">At the far north end, research has shown that a variety of resources are built in.</p>
+				</div>
+			</div>
+			
+
+	</div>
+</section>
+
+<section>
+	<p class="font2-2 color light"><span>George</span>'s Diary</p>
+	<div class="row">
+		<div class="box">
+		<div class="diary1 border">
+			<img src="george.png" id="person"><p class="font2-3 bold color align" id="name">George Brown &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (24)</p>
+		</div>
+		<div class="diary2 border">
+			<p class="font2-3 light color align" id="diary2_text">1920 / 10 / 23 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>Why am I so stupid</span></p>
+		</div>
+		</div>
+		<div class="diary3 border">
+			<div id="diary3_text">
+				<p class="font3 light color align line">Clouds floated on my way to school today. <span>What a beautiful day!</span> I felt better than anyone in the clear and clear sky, and I suddenly remembered her face. We're friends at the same school. Her smiles are pretty. It would be great to date her on such a nice day. When I was thinking like this, she came. Frightened of getting caught in me, I made a sloppy look. Then she glanced at me with a strange glance and passed by. <br><br>Oh my gosh!</p>
+				</div>
+		</div>
+	<img src="sticker1.png" id="sticker1">
+	<img src="sticker2.png" id="sticker2">
+	</div>
+	
+</section>
+
+<section>
+	<div class="row">
+	<img src="life3.png" id="life3">
+	<img src="life4.png" id="life4">
+	<img src="life5.png" id="life5">
+	<img src="life6.png" id="life6">
+	<img src="life1.png" id="life1">
+	<img src="life2.png" id="life2">
+	<p class="font2-3 color light" id="beautiful">What a beautiful day!</p>
+	<img src="emotion.png" id="emotion">
+	</div>
+</section>
+
+<section class="life">
+	<img src="sky.png" id="sky">
+	<img src="city.png" id="city">
+</section>
+
+<footer>
+<div class="row">
+	<p class="left font4 light color footer">Global temperature</p>
+	<p class="left font4 light color footer">Global warming</p>
+	<p class="left font4 light color footer">Human & Environment</p>
+	<p class="left font4 light color footer">There is no planet B</p>
+</footer>
+
+</body>
+</html>
