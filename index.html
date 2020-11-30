@@ -27,8 +27,9 @@
 
 	.font1{font-size: 175pt;}
 	.font2-1{font-size: 75pt; letter-spacing: -10pt;}
-	.font2-2{font-size: 50pt;}
+	.font2-2{font-size: 50pt; line-height: 100%}
 	.font2-3{font-size: 1.8em; line-height: 150%;}
+	.font2{font-size: 40px;}
 	.font3{font-size: 1.5em; line-height: 150%}
 	.font4{font-size: 1em;}
 
@@ -48,7 +49,7 @@
 	#C{top: 330px; left: 57%}
 
 	#moon{left:0; top: 0;}
-	#earth{top: 500px; left: 280px; width: 1100px; animation: rr 100s infinite linear;}
+	#earth{top: 500px; left: 17%; width: 65%; animation: rr 100s infinite linear;}
 	@keyframes rr{ to{ transform:rotate(360deg); } }
 	#graph{left:200px;}
 	#b{width: 100%; top: 900px;}
@@ -58,9 +59,38 @@
 	.w-box{width: 1200px; top: 50px;}
 	.e-box{width: 1200px; top: 580px;}
 
-	.clear{width:250px; top: 220px; left: 490px;}
-	.point{top: 135px; left: 350px; width: 500px}
+	.clear{width:250px; top: 220px; left: 490px;  animation: clear 1s infinite;  animation-direction:alternate;}
+	@keyframes clear{0%{opacity: 0%} 100%{opacity: 100%}}
+	.point{width: 500px; animation: pmove 1s infinite;  animation-direction:alternate;}
+	@keyframes pmove{from{top: 135px; left: 350px;} to{top: 135px; left: 400px;}}
+
+	.point2{width: 500px; animation: pmovee 1s infinite;  animation-direction:alternate; transform: rotate(180deg);}
+	@keyframes pmovee{from{top: 135px; left: 350px;} to{top: 135px; left: 300px;}}
+
 	.state{top: 350px; left: 1000px; width: 100px;}
+
+	.hidden{display: none; visibility: hidden;}
+	.button {cursor:pointer;}
+	.button:hover{opacity: 50%;}	
+	.box_modal{visibility: collapse; box-sizing: border-box; position: fixed; display: block; width: 500px; height: 400px; top:50%; left: 50%; margin-top: -75px; margin-left: -150px; background: black; border: 0.75px solid #00BCC5; overflow: hidden;
+  filter: alpha(opacity=60);
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+  -webkit-transform: scale(0, 0);
+  -ms-transform: scale(0, 0);
+  transform: scale(0, 0);
+z-index: 3}
+  
+  	.closer{cursor:pointer; position: absolute; width:30px; height:30px; top: 0; right:0; background: #00BCC5; text-align: center; color: white; z-index: 4}
+
+  	.text{display: inline-block; padding: 50px;}
+
+  	input#modal[type=checkbox]:checked ~ .box_modal {
+  visibility: visible;
+  -webkit-transform: scale(1, 1);
+  -ms-transform: scale(1, 1);
+  transform: scale(1, 1);
+}
 
 	.air{width: 150px; top:710px; left: 110px;}
 	.water{width: 80px; top: 700px; left: 560px;}
@@ -78,16 +108,16 @@
 	#w-1{width: 400px;top:720px; left:5px;}
 	#e-1{width: 400px;top:720px; left:25px;}
 
-	.news{background-image: url('bg.png'); background-repeat: no-repeat; height: 1200px;}
+	.news{background-image: url('bg.png'); background-repeat: no-repeat; background-size: cover; height: 1200px; }
 	.box{display: flex; width: 1200px;}
-	.border{border: 0.75px solid #00BCC5;}
+	.border{border: 0.75px solid #00BCC5; background:black}
 	.news1{width: 300px; height: 800px; margin: 20px;}
 	#news1{top: 25px; left: 25px;}
 	#news1_text{top: 620px; left: 25px;} 
 
 	.news2{width: 560px; height: 800px; margin: 20px;} 
 	#news2{width: 470px; top: 330px; left: 25px;}
-	#news2_text{left: 25px;} 
+	#news2_text{left: 25px; max-width: 470px;} 
 
 	.news3{width: 300px; height: 375px; margin: 20px;}
 	#news3{width: 225px; top: 25px; left: 25px} 
@@ -99,11 +129,16 @@
 	#diary2_text{top: 25px; left: 25px} 
 	.diary3{width: 740px; height: 640px; margin: 20px; z-index: -2; top: -682px; left: 420px;} 
 	#diary3_text{top: 50px;left: 50px; max-width: 640px;}
-	#sticker1{width: 200px; top:0px;} 
+	#sticker1{width: 200px; top:0px; animation: sticker 1s infinite;  animation-direction:alternate;} 
 	#sticker2{width: 200px; top:740px; left: 1000px;}
+	@keyframes sticker{0%{transform: rotate(20deg)} 100%{transform: rotate(-20deg)}}
+
 
 	#person{top:25px; left: 25px;}
 	#name{top:700px; left:25px;}
+
+	.What{animation: highlight 2.5s infinite;animation-direction:alternate;}
+	@keyframes highlight{0%{border-bottom: 0 solid black;} 100%{border-bottom: 0.75px solid #00BCC5}}
 
 	#life1{width: 900px; left: -100px;}
 	#life2{top: 300px; left: 300px;}
@@ -155,13 +190,25 @@
 	<div class="row"> 
 		<img src="w-box.png" class="w-box">
 		<img src="e-box.png" class="e-box">
-		<img src="clear.png" class="clear">
+		
+
+		<label for="modal" class="button">
+			<p class="font2-3 bold color" id="clear">Clear</p><img src="clear.png" class="clear">
+		</label>
+
+
+		<input type="checkbox" id="modal" class="hidden">
+		<div class="box_modal"><label for="modal" class="closer font3 light">X</label>
+			<div class="font3 light color text">Because there is no dust, the sky will be bright and clear. There is a 0% chance of rain and there is no dark cloud, but there will be some clouds. Even today, Earth's water and energy are always sufficient and all of you on Earth can live without worry.</div>
+		</div>
+
+
 		<img src="air.png" class="air">
 		<img src="water.png" class="water">
 		<img src="energy.png" class="energy">
 		<img src="point.png" class="point">
+		<img src="point.png" class="point2">
 		<img src="state.png" class="state">
-		<p class="font2-3 bold color" id="clear">Clear</p>
 			<div class="w-text">
 				<p class="font2-3 bold color" id="a">Air</p>
 				<p class="font2-3 bold color" id="w">water</p>
@@ -185,7 +232,7 @@
 		</div>
 			<div class="news2 border"><img src="2.png" id="news2">
 			<div id="news2_text">
-				<br><p class="font2-2 bold color align">THE BEST SPOTS EVER!</p><br><p class="font3 light color align">Come and visit this beautiful island that is perfect for rest!</p>
+				<br><p class="font2 bold color align">THE BEST SPOTS EVER!</p><br><p class="font3 light color align">Come and visit this beautiful island that is perfect for rest! An island country in Polynesia, close to Kiribati, Nauru, Samoa, and Fiji, and located halfway between Hawaii and Australia. It consists of 4 reef islands and 5 atoll islands.</p>
 			</div>
 		</div>
 			<div class="news3 border"><img src="3.png" id="news3"></div>
@@ -195,7 +242,7 @@
 				<div id="news4_text">
 				<p class="font2-3 bold color align">A mysterious place </p><br><p class="font3 light color align">At the far north end, research has shown that a variety of resources are built in.</p>
 				</div>
-			</div>
+		</div>
 			
 
 	</div>
@@ -214,7 +261,7 @@
 		</div>
 		<div class="diary3 border">
 			<div id="diary3_text">
-				<p class="font3 light color align line">Clouds floated on my way to school today. <span>What a beautiful day!</span> I felt better than anyone in the clear and clear sky, and I suddenly remembered her face. We're friends at the same school. Her smiles are pretty. It would be great to date her on such a nice day. When I was thinking like this, she came. Frightened of getting caught in me, I made a sloppy look. Then she glanced at me with a strange glance and passed by. <br><br>Oh my gosh!</p>
+				<p class="font3 light color align line">Clouds floated on my way to school today. <span class="What">What a beautiful day!</span> I felt better than anyone in the clear and clear sky, and I suddenly remembered her face. We're friends at the same school. Her smiles are pretty. It would be great to date her on such a nice day. When I was thinking like this, she came. Frightened of getting caught in me, I made a sloppy look. Then she glanced at me with a strange glance and passed by. <br><br>Oh my gosh!</p>
 				</div>
 		</div>
 	<img src="sticker1.png" id="sticker1">
@@ -231,7 +278,7 @@
 	<img src="life6.png" id="life6">
 	<img src="life1.png" id="life1">
 	<img src="life2.png" id="life2">
-	<p class="font2-3 color light" id="beautiful">What a beautiful day!</p>
+	<p class="font2 color light" id="beautiful">What a beautiful day!</p>
 	<img src="emotion.png" id="emotion">
 	</div>
 </section>
