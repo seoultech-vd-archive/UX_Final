@@ -4,9 +4,9 @@
 	<title>Global rising temperature</title>
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200; 300;700&display=swap" rel="stylesheet">
-
+<script type="text/javascript" src="wow.min.js"></script>
 <style type="text/css">
-	html{font-family: 'Work Sans', sans-serif; background: black;}
+	html{font-family: 'Work Sans', sans-serif; background: black; box-sizing: border-box;}
 	body,img,p,div,ul{margin: 0; position: relative;}
 	main,section{margin: auto;}
 	nav{width: 100%;  position: fixed; z-index: 2}
@@ -19,6 +19,9 @@
 	span{font-weight: 700;}
 	p{text-align: center;}
 	footer .row{display: flex; justify-content: space-between; height: 100px;}
+	a{text-decoration: none;}
+	a:link, a:visited{color: #00BCC5;}
+	a li:hover, a li:active{border:0.75px solid #00BCC5;}
 
 	.row{margin: auto; width: 1200px; padding-top: 30px;}
 
@@ -72,7 +75,7 @@
 	.hidden{display: none; visibility: hidden;}
 	.button {cursor:pointer;}
 	.button:hover{opacity: 50%;}	
-	.box_modal{visibility: collapse; box-sizing: border-box; position: fixed; display: block; width: 500px; height: 400px; top:50%; left: 50%; margin-top: -75px; margin-left: -150px; background: black; border: 0.75px solid #00BCC5; overflow: hidden;
+	.box_modal{visibility: collapse;  position: fixed; display: block; width: 500px; height: 400px; top:50%; left: 50%; margin-top: -75px; margin-left: -150px; background: black; border: 0.75px solid #00BCC5; overflow: hidden;
   filter: alpha(opacity=60);
   -webkit-transition: all .2s ease;
   transition: all .2s ease;
@@ -92,9 +95,12 @@ z-index: 3}
   transform: scale(1, 1);
 }
 
-	.air{width: 150px; top:710px; left: 110px;}
-	.water{width: 80px; top: 700px; left: 560px;}
-	.energy{width: 80px; top: 700px; left: 980px;}
+	.air{width: 150px; top:710px; left: 110px; animation: air 1s;}
+	@keyframes air{0%{opacity: 0%} 100%{opacity: 100%}}
+	.water{width: 80px; top: 700px; left: 560px; animation: water 1.5s;}
+	@keyframes water{0%{opacity: 0%} 100%{opacity: 100%}}
+	.energy{width: 80px; top: 700px; left: 980px; animation: energy 2s;}
+	@keyframes energy{0%{opacity: 0%} 100%{opacity: 100%}}
 	
 	#clear{top:100px;}
 
@@ -108,26 +114,32 @@ z-index: 3}
 	#w-1{width: 400px;top:720px; left:5px;}
 	#e-1{width: 400px;top:720px; left:25px;}
 
-	.news{background-image: url('bg.png'); background-repeat: no-repeat; background-size: cover; height: 1200px; }
+	.news{background-image: url('bg.png'); background-repeat: no-repeat; background-size: cover; height: 1100px; }
 	.box{display: flex; width: 1200px;}
 	.border{border: 0.75px solid #00BCC5; background:black}
-	.news1{width: 300px; height: 800px; margin: 20px;}
+	.news1{width: 300px; height: 800px; margin: 20px; animation: news 1s;}
+	@keyframes news{from{left: -350px;} to{left: 0px;}}
 	#news1{top: 25px; left: 25px;}
 	#news1_text{top: 620px; left: 25px;} 
 
-	.news2{width: 560px; height: 800px; margin: 20px;} 
+	.news2{width: 560px; height: 800px; margin: 20px; animation: newss 1s;}
+	@keyframes newss{from{margin-top: 350px;} to{margin-top: 20px;}} 
 	#news2{width: 470px; top: 330px; left: 25px;}
 	#news2_text{left: 25px; max-width: 470px;} 
 
-	.news3{width: 300px; height: 375px; margin: 20px;}
+	.news34{width: 300px; height: 800px; margin: 20px}
+	.news3{width: 100%; height:375px; margin-bottom:50px;  animation: newsss 1s;}
+	@keyframes newsss{from{right : -350px;} to{right: 0px;}}
 	#news3{width: 225px; top: 25px; left: 25px} 
-	.news4{width: 280px; height: 375px; margin: 20px; top: -417px; left:880px}
+	.news4{width: 100%; height: 375px;margin-top:50px;  animation: newssss 1.25s;}
+	@keyframes newssss{from{right : -350px;} to{right: 0px;}}
 	#news4_text{top: 25px; left: 25px; max-width: 230px;} 
 
 	.diary1{width: 400px; height: 770px; margin: 20px; z-index: -2}
-	.diary2{width: 780px; height: 90px; margin: 20px; z-index: -2} 
-	#diary2_text{top: 25px; left: 25px} 
-	.diary3{width: 740px; height: 640px; margin: 20px; z-index: -2; top: -682px; left: 420px;} 
+	.diary23{width: 740px; height: 770px; margin: 20px; z-index: -2}
+	.diary2{width: 740px; height: 90px; margin-bottom: 40px;} 
+	#diary2_text{top: 25px; left: 50px} 
+	.diary3{width: 740px; height: 640px; margin-top: 40px;} 
 	#diary3_text{top: 50px;left: 50px; max-width: 640px;}
 	#sticker1{width: 200px; top:0px; animation: sticker 1s infinite;  animation-direction:alternate;} 
 	#sticker2{width: 200px; top:740px; left: 1000px;}
@@ -137,7 +149,7 @@ z-index: 3}
 	#person{top:25px; left: 25px;}
 	#name{top:700px; left:25px;}
 
-	.What{animation: highlight 2.5s infinite;animation-direction:alternate;}
+	.What{animation: highlight 2.5s infinite; animation-direction:alternate;}
 	@keyframes highlight{0%{border-bottom: 0 solid black;} 100%{border-bottom: 0.75px solid #00BCC5}}
 
 	#life1{width: 900px; left: -100px;}
@@ -146,8 +158,8 @@ z-index: 3}
 	#life4{width: 450px; top:700px; left: -50px;}
 	#life5{width: 300px; top:700px; left: 450px;}
 	#life6{width: 500px; top:650px; right: -80px;}
-	#emotion{top:1250px; left: 560px;}
-	#beautiful{top: 1100px;}
+	#emotion{top:1350px; left: 560px;}
+	#beautiful{top: 1200px;}
 
 	#sky{width: 100%; bottom: 100px;}
 	#city{width:100%; bottom: 100px;}
@@ -165,11 +177,11 @@ z-index: 3}
 		<li>Global rising temperature is</li>
 	</ul>
 	<ul class="right font3 light color">
-	<li>+0</li>
-	<li>+0.13</li> 
-	<li>+1</li> 
-	<li>+2.9</li>
-	<li>+6.4</li>
+	<a href="index.html"><li>+0</li></a>
+	<a href="https://bae-gawon.github.io/UX_final_page2/"><li>+0.13</li> </a>
+	<a href="https://bae-gawon.github.io/UX_final_page3/"><li>+1</li> </a>
+	<a href="https://bae-gawon.github.io/UX_final_page4/"><li>+2.9</li></a>
+	<a href="https://bae-gawon.github.io/UX_final_page5/"><li>+6.4</li></a>
 	</ul>
 </nav>
 
@@ -203,16 +215,16 @@ z-index: 3}
 		</div>
 
 
-		<img src="air.png" class="air">
-		<img src="water.png" class="water">
-		<img src="energy.png" class="energy">
+		<img src="air.png" class="air wow">
+		<img src="water.png" class="water wow">
+		<img src="energy.png" class="energy wow">
 		<img src="point.png" class="point">
 		<img src="point.png" class="point2">
 		<img src="state.png" class="state">
 			<div class="w-text">
 				<p class="font2-3 bold color" id="a">Air</p>
-				<p class="font2-3 bold color" id="w">water</p>
-				<p class="font2-3 bold color" id="e">energy</p>
+				<p class="font2-3 bold color" id="w">Sea level</p>
+				<p class="font2-3 bold color" id="e">Energy</p>
 			</div>
 			<div class="w-content">
 				<p class="font3 light color" id="a-1">No dust</p>
@@ -225,23 +237,26 @@ z-index: 3}
 		<p class="font2-2 color light"><span>Our</span> News</p>
 	<div class="row">
 		<div class="box">
-		<div class="news1 border"><img src="1.png" id="news1">
+		<div class="news1 border wow"><img src="1.png" id="news1">
 			<div id="news1_text">
 				<p class="font2-3 bold color align">Economic Boom</p><br><p class="font3 light color align">The economy has boomed.</p>
 			</div>
 		</div>
-			<div class="news2 border"><img src="2.png" id="news2">
+			<div class="news2 border wow"><img src="2.png" id="news2">
 			<div id="news2_text">
 				<br><p class="font2 bold color align">THE BEST SPOTS EVER!</p><br><p class="font3 light color align">Come and visit this beautiful island that is perfect for rest! An island country in Polynesia, close to Kiribati, Nauru, Samoa, and Fiji, and located halfway between Hawaii and Australia. It consists of 4 reef islands and 5 atoll islands.</p>
 			</div>
 		</div>
-			<div class="news3 border"><img src="3.png" id="news3"></div>
-		</div>
+			<div class="news34">
+			<div class="news3 border wow"><img src="3.png" id="news3"></div>
+		
 
-			<div class="news4 border" id="news4">
+			<div class="news4 border wow" id="news4">
 				<div id="news4_text">
 				<p class="font2-3 bold color align">A mysterious place </p><br><p class="font3 light color align">At the far north end, research has shown that a variety of resources are built in.</p>
 				</div>
+			</div>
+		</div>
 		</div>
 			
 
@@ -253,19 +268,22 @@ z-index: 3}
 	<div class="row">
 		<div class="box">
 		<div class="diary1 border">
-			<img src="george.png" id="person"><p class="font2-3 bold color align" id="name">George Brown &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (24)</p>
+			<img src="human.png" id="person"><p class="font2-3 bold color align" id="name">George Brown &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (17)</p>
 		</div>
+		<div class="diary23">
 		<div class="diary2 border">
 			<p class="font2-3 light color align" id="diary2_text">1920 / 10 / 23 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>Why am I so stupid</span></p>
 		</div>
-		</div>
+		
 		<div class="diary3 border">
 			<div id="diary3_text">
-				<p class="font3 light color align line">Clouds floated on my way to school today. <span class="What">What a beautiful day!</span> I felt better than anyone in the clear and clear sky, and I suddenly remembered her face. We're friends at the same school. Her smiles are pretty. It would be great to date her on such a nice day. When I was thinking like this, she came. Frightened of getting caught in me, I made a sloppy look. Then she glanced at me with a strange glance and passed by. <br><br>Oh my gosh!</p>
+				<p class="font3 light color align line">Clouds floated on my way to school today. <span class="What wow">What a beautiful day!</span> I felt better than anyone in the clear and clear sky, and I suddenly remembered her face. We're friends at the same school. Her smiles are pretty. It would be great to date her on such a nice day. When I was thinking like this, she came. Frightened of getting caught in me, I made a sloppy look. Then she glanced at me with a strange glance and passed by. <br><br>Oh my gosh!</p>
 				</div>
+			</div>
+			</div>
 		</div>
-	<img src="sticker1.png" id="sticker1">
-	<img src="sticker2.png" id="sticker2">
+	<img src="sticker1.png" id="sticker1" class="drag" style="top:100px;left:100px;">
+	<img src="sticker2.png" id="sticker2" >
 	</div>
 	
 </section>
@@ -295,6 +313,29 @@ z-index: 3}
 	<p class="left font4 light color footer">Human & Environment</p>
 	<p class="left font4 light color footer">There is no planet B</p>
 </footer>
+
+	<script type="text/javascript">
+		//드래그앤 드롭 코드 시작	
+	(function(){
+	var d = false;
+	var target,cx,cy,lx,ly;
+	var t = document.getElementsByClassName("drag");
+	for(var i=0; i<t.length; i++){
+	t[i].style.display = "block";
+	t[i].style.position = "absolute";
+	t[i].style.cursor = "pointer";
+	t[i].ondragstart = function(e){e.preventDefault();};
+	t[i].onmousedown = function(e){ d = true; target = e.target; cx = e.clientX; cy = e.clientY; lx=parseInt(e.target.style.left); ly=parseInt(e.target.style.top);console.log(lx,ly);}
+	t[i].onmouseup = function(){ d = false;}
+	window.onmousemove = function(e){
+	if(d){ target.style.left = (lx + e.clientX - cx) + "px"; target.style.top = (ly + e.clientY - cy) + "px";}
+	}
+	}
+	})();
+	//드래그앤 드롭 코드 끝
+
+		new WOW().init();
+	</script>
 
 </body>
 </html>
